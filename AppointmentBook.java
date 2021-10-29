@@ -5,15 +5,15 @@ public class AppointmentBook {
 
     private static AppointmentBook ab = new AppointmentBook();
 
-    private static ArrayList<String> listOfAppointment = new ArrayList<>();
+    private static ArrayList<Appointment> listOfAppointment = new ArrayList<>();
 
-    public static void addAppointment(String Appointment){
-        listOfAppointment.add(Appointment);
+    public static void addAppointment(Appointment a){
+        listOfAppointment.add(a);
     }
 
     public static void showAppointment(){
         System.out.println(listOfAppointment.size() + " appointments scheduled");
-        System.out.println(String.join(",", listOfAppointment));
+        System.out.println(listOfAppointment.toString());
     }
 
     public static AppointmentBook getInstance(){
