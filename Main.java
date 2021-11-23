@@ -1,9 +1,8 @@
+import java.text.ParseException;
 
 public class Main {
-    public static void main(String[] args){
-        AppointmentBook ab = AppointmentBook.getInstance();
-        Appointment a = new Appointment("Doctor Appointment", "Darcula", 2021,10,29);
-        ab.addAppointment(a);
-        ab.showAppointment();
+    public static void main(String[] args) throws ParseException {
+
+        AppointmentBookGUI abg = new AppointmentBookGUI("Appointments", 700,500);
     }
 }
