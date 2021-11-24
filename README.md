@@ -1,2 +1,2 @@
 # Java-Appointment-Book
-Making a pseudo appointment book for a project
+A Java Appointment Book with a GUI where you can add appointments and create appointments to add.
