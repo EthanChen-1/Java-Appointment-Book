@@ -44,8 +44,26 @@ public class AppointmentBookGUI extends JFrame{
                 String appointmentTime = tfAppointmentTime.getText();
                 if(patientID.equals("") || appointmentDate.equals("") || appointmentTime.equals("") || patientName.equals("")){
                     JOptionPane.showMessageDialog(mainPanel, "One or more fields are missing, please fill them in before pressing ok");
+                } else {
+                    try {
+                        AppointmentInformation newAppointment = new AppointmentInformation(new Patient(patientName, patientID), appointmentDate, appointmentTime);
+                        Boolean isThere = false;
+                        if(!AppointmentBookList.isEmpty()){
+                            for(int i = 0; i < AppointmentBookList.size(); i++){
+                                if(newAppointment.getDate().equals(AppointmentBookList.get(i).getDate())){
+                                    JOptionPane.showMessageDialog(mainPanel, newAppointment.getDate() + " is already in booked");
+                                    isThere = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if(!isThere){
+                            AppointmentBookList.add(newAppointment);
+                        }
+                    } catch (ParseException ex) {
+                        System.out.println(ex.getMessage());
+                    }
                 }
-
             }
         });
 
