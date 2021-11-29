@@ -59,6 +59,7 @@ public class AppointmentBookGUI extends JFrame{
                         }
                         if(!isThere){
                             AppointmentBookList.add(newAppointment);
+                            taConfirmCreationArea.append("A new appointment was created for " + newAppointment.getPatient().getPatientName() + " on " +  newAppointment.getDate());
                         }
                     } catch (ParseException ex) {
                         System.out.println(ex.getMessage());
