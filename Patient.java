@@ -24,6 +24,6 @@ public class Patient {
     }
 
     public String toString(){
-        return String.valueOf(patientID);
+        return "Name: " + patientName + " ID: " + patientID;
     }
 }

@@ -11,9 +11,11 @@ public class AppointmentInformation {
      */
     Patient patient;
     Date date;
+    appointmentState STATUS;
     public AppointmentInformation(Patient patient,String date, String time) throws ParseException {
         this.patient = patient;
         this.date = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").parse(date + " " + time);
+        STATUS = appointmentState.BOOKED;
     }
 
     @Override
@@ -35,6 +37,12 @@ public class AppointmentInformation {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    enum appointmentState{
+        BOOKED,
+        IN_PROGRESS,
+        COMPLETED
     }
 
 }

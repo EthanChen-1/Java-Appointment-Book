@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -59,7 +60,8 @@ public class AppointmentBookGUI extends JFrame{
                         }
                         if(!isThere){
                             AppointmentBookList.add(newAppointment);
-                            taConfirmCreationArea.append("A new appointment was created for " + newAppointment.getPatient().getPatientName() + " on " +  newAppointment.getDate());
+                            taConfirmCreationArea.append("A new appointment was created for " + newAppointment.getPatient().getPatientName() + " on " +  newAppointment.getDate() + "\n");
+                            jbClearButton.doClick(1);
                         }
                     } catch (ParseException ex) {
                         System.out.println(ex.getMessage());
@@ -72,6 +74,7 @@ public class AppointmentBookGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 tfPatientID.setText(null);
+                tfPatientName.setText(null);
                 tfAppointmentDate.setText(null);
                 tfAppointmentTime.setText(null);
                 rbAddReminder.setSelected(false);
@@ -82,16 +85,10 @@ public class AppointmentBookGUI extends JFrame{
         jbViewScheduledAppointment.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String appointment = "";
-                for(AppointmentInformation ai : AppointmentBookList){
-                    appointment += ai.toString() + "\n";
-                }
-                JOptionPane.showMessageDialog(mainPanel, appointment);
+                JOptionPane.showMessageDialog(mainPanel,AppointmentBookList.toString());
             }
         });
     }
 
-    public static void main(String[] args){
-        AppointmentBookGUI ABG = new AppointmentBookGUI();
-    }
+
 }
